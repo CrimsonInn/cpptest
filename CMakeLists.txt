@@ -5,6 +5,7 @@ find_package (Threads)
 
 
 include_directories(cpptest "${PROJECT_SOURCE_DIR}/include")
+include_directories(cpptest "${PROJECT_SOURCE_DIR}/protobuf")
 file(GLOB SOURCES
     src/*.cc
 )

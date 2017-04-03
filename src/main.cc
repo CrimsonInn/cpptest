@@ -3,8 +3,10 @@
 #include <vector>
 #include "./func.h"
 #include "./func2.h"
+#include "./demo.pb.h"
 
 using namespace std;
+
 void calc(float *A, size_t n) {
     float tmp = 0.0;
     for (size_t i = 0;i < n; ++i)
@@ -14,6 +16,10 @@ void calc(float *A, size_t n) {
 
 int main()
 {
+    // Verify that the version of the library that we linked against is
+    // compatible with the version of the headers we compiled against.
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+
     print();
     print2();
     vector<thread> th;
@@ -26,6 +32,10 @@ int main()
         t.join();
     }
     cout << thread::hardware_concurrency() << endl;
+
+    // Optional:  Delete all global objects allocated by libprotobuf.
+    google::protobuf::ShutdownProtobufLibrary();
+    
     return 0;
 }
 
