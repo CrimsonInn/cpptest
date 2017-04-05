@@ -12,7 +12,7 @@ file(GLOB SOURCES
     src/*.cc
 )
 
-add_library (common STATIC src/common/func.cc src/common/func2.cc)
+add_library (common STATIC src/common/func.cc src/common/func2.cc src/common/read_protobuf.cc src/common/write_protobuf.cc)
 
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
